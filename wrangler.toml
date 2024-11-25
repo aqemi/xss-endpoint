@@ -1,0 +1,6 @@
+name = "xss-endpoint"
+main = "src/index.ts"
+compatibility_date = "2024-11-24"
+
+[observability.logs]
+enabled = true
