@@ -26,6 +26,9 @@ export interface Env {
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    if (!request.url.includes("cookie")) {
+      return new Response(null, { status: 200 });
+    }
     const headers = Object.fromEntries(request.headers.entries());
     const url = new URL(request.url);
     const cookies = atob(url.searchParams.get("cookie") ?? "");
